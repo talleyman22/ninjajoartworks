@@ -19,7 +19,15 @@ RECOMMENDED — CLOUDFLARE PAGES (free SSL, fast, form-friendly)
 
 STEP 1 — Deploy the site
 
-  Option A — Dashboard upload
+  Option A — Git push (recommended — auto-deploy via Cloudflare Pages)
+  Repo: https://github.com/talleyman22/ninjajoartworks
+  Local git root: D:\ninja jo artworks\repos\ninjajoartworks\
+  Edit site in website\ → npm run sync → commit + push in repos\ninjajoartworks\
+  Cloudflare: Workers & Pages → ninjajoartworks → Settings → Builds & deployments
+    → Connect to Git → pick talleyman22/ninjajoartworks → branch main
+    → Build command: (empty)  → Build output: /
+
+  Option B — Dashboard upload
   1. Sign in at https://dash.cloudflare.com (free account) — enable 2FA
   2. Workers & Pages → Create → Pages → Upload assets
   3. Project name: ninjajoartworks
