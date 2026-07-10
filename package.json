@@ -1,0 +1,10 @@
+{
+  "name": "ninjajoartworks-site",
+  "private": true,
+  "scripts": {
+    "preview": "npx --yes serve . -p 3456",
+    "zip": "python ../scripts/build-deploy-zip.py",
+    "deploy": "npx --yes wrangler pages deploy . --project-name=ninjajoartworks --branch=main",
+    "check": "node ../scripts/go-live-check.mjs"
+  }
+}

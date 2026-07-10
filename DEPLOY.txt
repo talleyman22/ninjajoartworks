@@ -1,0 +1,165 @@
+NINJA JO ARTWORKS — WEBSITE HOSTING & FORM SETUP
+Domain: ninjajoartworks.com (registered at GoDaddy)
+GoDaddy login: kevtalley80@gmail.com (DNS / nameserver changes — not ninjajoartworks@gmail.com)
+Public contact: ninjajoartworks@gmail.com only (forms + site; see contact.html)
+================================================================================
+
+YOU OWN THE DOMAIN AT GODADDY. YOU STILL NEED A HOST.
+--------------------------------------------------------------------------------
+GoDaddy registration ≠ automatic website. Think of it like:
+  - GoDaddy = your street address (ninjajoartworks.com)
+  - Host = the building where the HTML files live
+
+This site is static HTML/CSS/JS — no server code. Easiest path: free static host
++ point GoDaddy DNS at it.
+
+
+RECOMMENDED — CLOUDFLARE PAGES (free SSL, fast, form-friendly)
+--------------------------------------------------------------------------------
+
+STEP 1 — Deploy the site
+
+  Option A — Dashboard upload
+  1. Sign in at https://dash.cloudflare.com (free account) — enable 2FA
+  2. Workers & Pages → Create → Pages → Upload assets
+  3. Project name: ninjajoartworks
+  4. Drag the entire website/ folder contents (index.html, css/, js/, assets/, etc.)
+  5. Deploy → you get a preview URL like ninjajoartworks.pages.dev
+
+  Option B — Wrangler CLI (from website/)
+  1. Create Cloudflare API token (Pages deploy permission)
+  2. $env:CLOUDFLARE_API_TOKEN = "token"  (PowerShell — session only)
+  3. npm run deploy
+  See GO-LIVE-NOW.txt for full gate checklist.
+
+  Rebuild deploy zip (forward-slash paths — required for CSS on Cloudflare):
+    python -c "import os,zipfile; r=r'D:\\ninja jo artworks\\website'; o=r'D:\\ninja jo artworks\\ninjajoartworks-site.zip'; ..."
+    Or run from website folder after Grok rebuilds ninjajoartworks-site.zip at repo root.
+
+  PLAIN TEXT / NO STYLING after deploy?
+    → CSS path broken by Windows backslash zip. Redeploy fixed zip from repo root.
+
+STEP 2 — Connect ninjajoartworks.com
+  Option A — Use Cloudflare nameservers (simplest)
+    1. Cloudflare Pages → your project → Custom domains → Add ninjajoartworks.com
+    2. Cloudflare shows two nameservers (e.g. ada.ns.cloudflare.com)
+    3. GoDaddy → My Products → ninjajoartworks.com → DNS → Nameservers
+    4. Change to Custom → paste Cloudflare nameservers → Save
+    5. Wait 15 min–48 hrs for propagation → https://ninjajoartworks.com works
+
+  Option B — Keep GoDaddy DNS (advanced)
+    1. In Cloudflare Pages custom domain setup, choose CNAME route
+    2. GoDaddy → DNS → Add CNAME: www → your-project.pages.dev
+    3. GoDaddy → DNS → Forward apex ninjajoartworks.com → https://www.ninjajoartworks.com
+    4. Enable SSL in Cloudflare (automatic)
+
+STEP 3 — www redirect
+  Cloudflare Pages custom domain setup usually adds both apex + www.
+  Verify https://www.ninjajoartworks.com redirects to apex (or vice versa).
+
+
+ALTERNATIVE — NETLIFY (also free, similar steps)
+--------------------------------------------------------------------------------
+  1. https://app.netlify.com → Add new site → Deploy manually → drag website/ folder
+  2. Site settings → Domain management → Add ninjajoartworks.com
+  3. Netlify shows DNS records → enter them in GoDaddy DNS panel
+     OR switch GoDaddy nameservers to Netlify (if offered)
+
+
+ALTERNATIVE — GODADDY WEB HOSTING (if you already pay for hosting)
+--------------------------------------------------------------------------------
+  1. GoDaddy → Web Hosting → File Manager → public_html/
+  2. Upload ALL files from website/ (not the folder itself — contents inside)
+  3. index.html must sit directly in public_html/
+  4. Enable SSL in hosting panel (Let's Encrypt)
+  5. Domain should already point to this hosting if bundled — test https://ninjajoartworks.com
+
+
+LOCAL PREVIEW (before go-live)
+--------------------------------------------------------------------------------
+  cd "D:\ninja jo artworks\website"
+  npm run preview
+  Open http://localhost:3456
+
+
+FORM → ninjajoartworks@gmail.com (Web3Forms — 5 minutes)
+--------------------------------------------------------------------------------
+The form code is wired. One key activates live email delivery.
+
+  1. Go to https://web3forms.com
+  2. Sign up with ninjajoartworks@gmail.com
+  3. Create an access key (free tier: 250 submissions/month)
+  4. Open website/js/form-config.js
+  5. Paste key into web3formsAccessKey: "YOUR_KEY_HERE"
+  6. Re-deploy / re-upload website folder to Cloudflare Pages (or refresh hosting)
+
+Test: submit a work request → confirmation page should say email was sent →
+check ninjajoartworks@gmail.com inbox (and spam).
+
+Until the key is set: form still validates and shows confirmation preview locally,
+but no email is sent (banner on request page notes this).
+
+
+AFTER GO-LIVE CHECKLIST
+--------------------------------------------------------------------------------
+  [ ] web3formsAccessKey set in js/form-config.js and redeployed
+  [ ] Test form submission → email received at ninjajoartworks@gmail.com
+  [ ] Remove or shorten pink test banners in index.html + request.html
+  [ ] https://ninjajoartworks.com loads with padlock (SSL)
+  [ ] www redirect works
+  [ ] Optional: hello@ alias if you add Google Workspace later
+
+
+TROUBLESHOOTING
+--------------------------------------------------------------------------------
+  Domain shows GoDaddy parking page
+    → DNS not pointed at host yet; wait for propagation or fix nameservers
+
+  SSL certificate error
+    → On Cloudflare/Netlify, wait 15 min after adding custom domain
+
+  Form submits but no email
+    → Check form-config.js key · Web3Forms dashboard · spam folder
+
+  Lane dropdown looks wrong after deploy
+    → Hard refresh (Ctrl+F5) — browser may cache old request-form.js
+
+
+HOSTING ROADMAP — DOWN THE ROAD
+================================================================================
+
+You do NOT need to migrate away from Cloudflare Pages as NJA grows. The public
+marketing site stays static; new capabilities attach alongside it.
+
+PHASE 1 — NOW (launch)
+  Host:     Cloudflare Pages (free)
+  Domain:   GoDaddy registrar → Cloudflare nameservers
+  Forms:    Web3Forms → ninjajoartworks@gmail.com
+  PR:       website/news/ static HTML posts (same host, no backend)
+  Cost:     ~$0/mo hosting + domain renewal (~$23/yr GoDaddy)
+
+PHASE 2 — GROWTH (6–24 months, still mostly static)
+  Same Cloudflare Pages project — add news posts, artist pages, SEO updates
+  Merch marketing: link-outs + PR posts to artist-owned shops (Threadless, etc.)
+  Optional: shop.ninjajoartworks.com on Shopify Starter / Snipcart embed
+             (separate product — main site unchanged)
+  Optional: transfer domain registrar GoDaddy → Cloudflare Registrar (one login)
+  Email:    NJA ops on ninjajoartworks@gmail.com; APIs via GCP (no Workspace required).
+            Optional later: hello@ninjajoartworks.com via new Workspace (eqloots sub is dead weight).
+  Cost:     Still $0 Pages for the website; shop subdomain optional ($0–39/mo)
+
+PHASE 3 — PORTAL (only when ContracTracker + deal flow justify it)
+  Marketing site: STAYS on Cloudflare Pages (fast, secure, cheap)
+  New subdomain:  app.ninjajoartworks.com or api.ninjajoartworks.com
+  Host for API:   Railway, Render, Fly.io, or Cloudflare Workers (~$25–150/mo)
+  Features:       client status, Stripe Connect splits, self-serve catalog
+  Security:       auth, server-side secrets, webhooks — new ops burden
+
+NEVER NEEDED
+  GoDaddy Web Hosting / Website Builder / Airo
+  WordPress on shared hosting (attack surface + lag for no gain)
+
+Rule of thumb: Pages serves the brochure + PR + request funnel forever.
+Only add a second host when you need a database or logged-in users.
+
+================================================================================

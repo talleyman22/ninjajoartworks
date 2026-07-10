@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Work — Ninja Jo Artworks</title>
+  <meta name="description" content="Submit a commercial work request for custom art commissions or music licensing through Ninja Jo Artworks.">
+  <link rel="canonical" href="https://ninjajoartworks.com/request.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/NJArtworks_logo.png" type="image/png">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/NJArtworks_logo.png" alt="Ninja Jo Artworks">
+        <span>Ninja Jo Artworks</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#lanes">Services</a>
+        <a href="artists.html">Artists</a>
+        <a href="news/index.html">News</a>
+        <a href="request.html" class="active">Request Work</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <div class="container">
+      <h1>Work Request</h1>
+      <p class="form-intro">Tell us about your project. The fields below map directly to our commission and license agreements — so when we're ready to quote, most of the contract is already filled in. Firm pricing follows creator confirmation; this is not a binding quote.</p>
+
+      <form id="work-request-form" novalidate>
+        <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <section class="form-section">
+          <h2>Contact &amp; billing entity</h2>
+          <p class="hint">Maps to agreement party block — legal name, address, and signatory.</p>
+          <div class="field-grid">
+            <div class="field">
+              <label for="legal_name">Full legal name <span class="req">*</span></label>
+              <input type="text" id="legal_name" name="legal_name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="entity_name">Company / organization</label>
+              <input type="text" id="entity_name" name="entity_name" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="field full">
+              <label for="address_line1">Billing address <span class="req">*</span></label>
+              <input type="text" id="address_line1" name="address_line1" required autocomplete="address-line1">
+            </div>
+            <div class="field full">
+              <label for="address_line2">Address line 2</label>
+              <input type="text" id="address_line2" name="address_line2" autocomplete="address-line2">
+            </div>
+            <div class="field">
+              <label for="city">City <span class="req">*</span></label>
+              <input type="text" id="city" name="city" required autocomplete="address-level2">
+            </div>
+            <div class="field">
+              <label for="state">State / province <span class="req">*</span></label>
+              <input type="text" id="state" name="state" required autocomplete="address-level1">
+            </div>
+            <div class="field">
+              <label for="postal_code">Postal code <span class="req">*</span></label>
+              <input type="text" id="postal_code" name="postal_code" required autocomplete="postal-code">
+            </div>
+            <div class="field">
+              <label for="country">Country</label>
+              <input type="text" id="country" name="country" value="United States" autocomplete="country-name">
+            </div>
+            <div class="field">
+              <label for="signatory_name">Signatory name <span class="req">*</span></label>
+              <input type="text" id="signatory_name" name="signatory_name" required>
+            </div>
+            <div class="field">
+              <label for="signatory_title">Signatory title <span class="req">*</span></label>
+              <input type="text" id="signatory_title" name="signatory_title" placeholder="e.g. Producer, Creative Director" required>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>Lane &amp; request type</h2>
+          <p class="hint">Determines which agreement template and creator lane we use.</p>
+          <div class="field-grid">
+            <div class="field">
+              <label for="lane">Creative lane <span class="req">*</span></label>
+              <select id="lane" name="lane" required>
+                <option value="">Select…</option>
+                <option value="art">Art (Ninja Jo)</option>
+                <option value="music">Music (custom / license)</option>
+                <option value="both">Both (bundle)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="request_type">Request type <span class="req">*</span></label>
+              <select id="request_type" name="request_type" required disabled>
+                <option value="">Select creative lane first…</option>
+              </select>
+              <p class="hint" id="request-type-hint" style="margin-top:0.5rem;">Pick Art, Music, or Both — request types update to match.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section conditional" id="art-section">
+          <h2>Art scope</h2>
+          <p class="hint">Maps to Art Commission Agreement — Description, Usage, Delivery.</p>
+          <div class="field-grid">
+            <div class="field full">
+              <label for="deliverable_description">Deliverable description <span class="req">*</span></label>
+              <textarea id="deliverable_description" name="deliverable_description" placeholder="Album cover, game key art, character portrait, dimensions, layered PSD, etc."></textarea>
+            </div>
+            <div class="field">
+              <label for="dimensions_format">Dimensions / format</label>
+              <input type="text" id="dimensions_format" name="dimensions_format" placeholder="e.g. 3000×3000 PNG, PSD with layers">
+            </div>
+            <div class="field">
+              <label for="usage_type">Usage type</label>
+              <select id="usage_type" name="usage_type">
+                <option value="commercial">Commercial</option>
+                <option value="personal">Personal (non-commercial)</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="usage_details">Usage details</label>
+              <textarea id="usage_details" name="usage_details" placeholder="Media, territory, term, exclusivity — e.g. worldwide digital game release, 1 year"></textarea>
+            </div>
+            <div class="field full">
+              <label for="style_references">Style / references</label>
+              <textarea id="style_references" name="style_references" placeholder="Links, mood boards, genre notes (cyberpunk, sci-fi, retrowave…)"></textarea>
+            </div>
+            <div class="field full">
+              <label for="complexity_notes">Complexity notes</label>
+              <textarea id="complexity_notes" name="complexity_notes" placeholder="Character count, background detail, multiple figures, etc."></textarea>
+            </div>
+            <div class="field full conditional" id="existing-art-field">
+              <label for="existing_art_piece">Existing art piece (if licensing)</label>
+              <input type="text" id="existing_art_piece" name="existing_art_piece" placeholder="Title or URL — availability confirmed internally">
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section conditional" id="music-section">
+          <h2>Music scope</h2>
+          <p class="hint">Maps to Client License Agreement — Licensed Work &amp; Grant of License sections.</p>
+          <div class="field-grid">
+            <div class="field full">
+              <label for="track_need_description">Track / project need <span class="req">*</span></label>
+              <textarea id="track_need_description" name="track_need_description" placeholder="Game OST, trailer cue(s), stream package, full track(s), loop(s), etc."></textarea>
+            </div>
+            <div class="field">
+              <label for="duration_edit">Duration / edit length</label>
+              <input type="text" id="duration_edit" name="duration_edit" placeholder="Full track(s), 60s build(s), loop(s)">
+            </div>
+            <div class="field">
+              <label for="delivery_format">Delivery format</label>
+              <input type="text" id="delivery_format" name="delivery_format" placeholder="WAV 48kHz 24-bit, MP3, stems">
+            </div>
+            <div class="field">
+              <label for="project_title">Project title</label>
+              <input type="text" id="project_title" name="project_title">
+            </div>
+            <div class="field">
+              <label for="media_type">Media type</label>
+              <input type="text" id="media_type" name="media_type" placeholder="Game, trailer, ad, stream, film">
+            </div>
+            <div class="field">
+              <label for="territory">Territory</label>
+              <input type="text" id="territory" name="territory" placeholder="Worldwide, US only, etc.">
+            </div>
+            <div class="field">
+              <label for="term">Term</label>
+              <input type="text" id="term" name="term" placeholder="1 year, perpetual, project life">
+            </div>
+            <div class="field">
+              <label for="distribution">Distribution</label>
+              <input type="text" id="distribution" name="distribution" placeholder="Digital streaming, theatrical, broadcast">
+            </div>
+            <div class="field">
+              <label for="exclusivity">Exclusivity</label>
+              <select id="exclusivity" name="exclusivity">
+                <option value="non-exclusive">Non-exclusive (default)</option>
+                <option value="exclusive">Exclusive (quote uplift)</option>
+              </select>
+            </div>
+            <div class="field full conditional" id="catalog-track-field">
+              <label for="catalog_track_name">Catalog track name</label>
+              <input type="text" id="catalog_track_name" name="catalog_track_name" placeholder="Only after rights clearance">
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>Timeline &amp; budget</h2>
+          <p class="hint">Qualifying signal — firm quote after internal OK. Rush and PO/NTE may trigger additional review.</p>
+          <div class="field-grid">
+            <div class="field">
+              <label for="target_deadline">Target deadline <span class="req">*</span></label>
+              <input type="date" id="target_deadline" name="target_deadline" required>
+            </div>
+            <div class="field">
+              <label for="rush_needed">Rush needed?</label>
+              <select id="rush_needed" name="rush_needed">
+                <option value="no">No</option>
+                <option value="yes">Yes — may require change order</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="budget_range">Budget range / signal <span class="req">*</span></label>
+              <input type="text" id="budget_range" name="budget_range" placeholder="e.g. $500–800, flexible, TBD" required>
+            </div>
+            <div class="field">
+              <label for="po_nte_cap">PO / not-to-exceed cap</label>
+              <input type="text" id="po_nte_cap" name="po_nte_cap" placeholder="Optional">
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section conditional" id="art-terms-section">
+          <h2>Art commission terms</h2>
+          <p class="hint">Required for art and bundle requests.</p>
+          <div class="ack-group" id="art-ack-group">
+            <div class="checkbox-field">
+              <input type="checkbox" id="prepay_ack" name="prepay_ack" value="yes">
+              <label for="prepay_ack">I understand custom art commissions require 50% prepay before work starts (non-refundable). <span class="req">*</span></label>
+            </div>
+            <div class="checkbox-field">
+              <input type="checkbox" id="revisions_ack" name="revisions_ack" value="yes">
+              <label for="revisions_ack">I understand 3 revision rounds are included; additional rounds are billed at $20/hr personal or $60/hr commercial. <span class="req">*</span></label>
+            </div>
+            <div class="checkbox-field">
+              <input type="checkbox" id="hires_ack" name="hires_ack" value="yes">
+              <label for="hires_ack">I understand final high-resolution art files release after 100% payment.</label>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section conditional" id="music-terms-section">
+          <h2>Music licensing terms</h2>
+          <p class="hint">Required for music and bundle requests.</p>
+          <div class="ack-group" id="music-ack-group">
+            <div class="checkbox-field">
+              <input type="checkbox" id="music_quote_ack" name="music_quote_ack" value="yes">
+              <label for="music_quote_ack">I understand this submission is a work request only — firm pricing and rights scope follow creator confirmation and a written agreement. <span class="req">*</span></label>
+            </div>
+            <div class="checkbox-field">
+              <input type="checkbox" id="catalog_clearance_ack" name="catalog_clearance_ack" value="yes">
+              <label for="catalog_clearance_ack">If requesting a catalog track, I understand availability and clearance are confirmed internally before any license is quoted.</label>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>Additional</h2>
+          <div class="field-grid">
+            <div class="field">
+              <label for="has_client_contract">Do you have your own contract to send?</label>
+              <select id="has_client_contract" name="has_client_contract">
+                <option value="no">No</option>
+                <option value="yes">Yes — I'll email it separately</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="additional_notes">Anything else we should know?</label>
+              <textarea id="additional_notes" name="additional_notes" placeholder="References, stakeholders, internal approvals, etc."></textarea>
+            </div>
+          </div>
+        </section>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Submit Work Request</button>
+          <a href="index.html" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2026 Ninja Jo Artworks, Ltd Co. All rights reserved.</div>
+      <div>
+        <a href="mailto:ninjajoartworks@gmail.com">ninjajoartworks@gmail.com</a><br>
+        <a href="request.html">Request work</a> · <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/form-config.js"></script>
+  <script src="js/request-form.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+NINJA JO ARTWORKS — GO-LIVE (Kevin browser steps)
+Last updated: July 10, 2026
+================================================================================
+
+Code prep is DONE (banners removed, SEO, honeypot, news). Three gates need you.
+
+
+GATE 1 — WEB3FORMS [x] DONE (Jul 10, 2026)
+--------------------------------------------------------------------------------
+  Key wired in js/form-config.js (NJA Work Request form)
+  Form domain: ninjajoartworks.com/request.html
+
+
+GATE 2 — CLOUDFLARE PAGES (~15 min) ← YOU ARE HERE
+--------------------------------------------------------------------------------
+  Deploy package ready: D:\ninja jo artworks\ninjajoartworks-site.zip (~4 MB)
+
+  Dashboard upload (your screenshot — Workers & Pages):
+    1. Click blue "Create application"
+    2. Choose "Pages" tab → "Get started" or "Upload assets"
+    3. Project name: ninjajoartworks
+    4. Upload D:\ninja jo artworks\ninjajoartworks-site.zip (REBUILD if needed:
+       python from repo root — see DEPLOY.txt; paths MUST use forward slashes)
+       If site loads as plain unstyled text → redeploy this zip (Windows zip bug)
+    5. Deploy → note preview URL (*.pages.dev)
+    6. Project → Custom domains → Set up a custom domain
+       → Add ninjajoartworks.com AND www.ninjajoartworks.com
+    7. Enable 2FA: My Profile → Authentication (if not done)
+
+  Option B — Wrangler CLI (repeat deploys)
+    1. Cloudflare → My Profile → API Tokens → Create Token
+       Template: "Edit Cloudflare Workers" or custom Pages deploy permission
+    2. PowerShell (one session):
+         $env:CLOUDFLARE_API_TOKEN = "paste_token_here"
+         cd "D:\ninja jo artworks\website"
+         npm run deploy
+    3. Do NOT commit the token to git
+
+
+GATE 3 — GODADDY DNS (~5 min + propagation)
+--------------------------------------------------------------------------------
+  1. GoDaddy → sign in kevtalley80@gmail.com → ninjajoartworks.com → DNS
+  2. Nameservers → Change to Custom → paste Cloudflare nameservers (2)
+  3. Wait 15 min – 48 hr
+  4. Verify https://ninjajoartworks.com shows NJA site (not parking page)
+
+
+AFTER DNS LIVE
+--------------------------------------------------------------------------------
+  [ ] Submit test work request → check ninjajoartworks@gmail.com inbox
+  [ ] Google Search Console → add property → submit sitemap.xml
+  [ ] Optional: Cloudflare Email Routing → hello@ → forward to NJA Gmail
+
+Verify locally first:  cd website && npm run preview  → localhost:3456
+Pre-deploy check:      cd website && npm run check    (fails until Web3Forms key set)
+
+================================================================================
