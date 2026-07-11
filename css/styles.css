@@ -901,6 +901,18 @@ img {
   object-fit: contain;
 }
 
+.art-frame-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+@media (max-width: 640px) {
+  .art-frame-duo {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 800px) {
   .hero-grid {
     grid-template-columns: 1fr;
