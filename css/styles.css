@@ -839,6 +839,13 @@ img {
   border: 0;
 }
 
+.bandcamp-embed {
+  width: 100%;
+  height: 472px;
+  border: 0;
+  background: #1a1a1a;
+}
+
 .work-item .video-embed + .video-embed {
   border-top: 1px solid var(--border);
 }
