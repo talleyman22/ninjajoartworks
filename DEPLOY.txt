@@ -41,8 +41,8 @@ STEP 1 — Deploy the site
   See GO-LIVE-NOW.txt for full gate checklist.
 
   Rebuild deploy zip (forward-slash paths — required for CSS on Cloudflare):
-    python -c "import os,zipfile; r=r'D:\\ninja jo artworks\\website'; o=r'D:\\ninja jo artworks\\ninjajoartworks-site.zip'; ..."
-    Or run from website folder after Grok rebuilds ninjajoartworks-site.zip at repo root.
+    python -c "import os,zipfile; r=r'D:\\ninja jo artworks\\website'; o=r'D:\\ninja jo artworks\\website\\ninjajoartworks-site.zip'; ..."
+    Or run from website folder: npm run zip → website/ninjajoartworks-site.zip
 
   PLAIN TEXT / NO STYLING after deploy?
     → CSS path broken by Windows backslash zip. Redeploy fixed zip from repo root.

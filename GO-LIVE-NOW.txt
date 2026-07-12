@@ -13,13 +13,13 @@ GATE 1 — WEB3FORMS [x] DONE (Jul 10, 2026)
 
 GATE 2 — CLOUDFLARE PAGES (~15 min) ← YOU ARE HERE
 --------------------------------------------------------------------------------
-  Deploy package ready: D:\ninja jo artworks\ninjajoartworks-site.zip (~4 MB)
+  Deploy package ready: D:\ninja jo artworks\website\ninjajoartworks-site.zip (~4 MB)
 
   Dashboard upload (your screenshot — Workers & Pages):
     1. Click blue "Create application"
     2. Choose "Pages" tab → "Get started" or "Upload assets"
     3. Project name: ninjajoartworks
-    4. Upload D:\ninja jo artworks\ninjajoartworks-site.zip (REBUILD if needed:
+    4. Upload D:\ninja jo artworks\website\ninjajoartworks-site.zip (REBUILD if needed:
        python from repo root — see DEPLOY.txt; paths MUST use forward slashes)
        If site loads as plain unstyled text → redeploy this zip (Windows zip bug)
     5. Deploy → note preview URL (*.pages.dev)
