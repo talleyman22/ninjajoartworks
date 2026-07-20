@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://ninjajoartworks.com/</loc></url>
-  <url><loc>https://ninjajoartworks.com/artists.html</loc></url>
-  <url><loc>https://ninjajoartworks.com/artists/ninja-jo.html</loc></url>
-  <url><loc>https://ninjajoartworks.com/artists/entropy-zero.html</loc></url>
-  <url><loc>https://ninjajoartworks.com/artists/sebastian-komor.html</loc></url>
-  <url><loc>https://ninjajoartworks.com/request.html</loc></url>
-  <url><loc>https://ninjajoartworks.com/contact.html</loc></url>
-  <url><loc>https://ninjajoartworks.com/news/index.html</loc></url>
+  <url><loc>https://ninjajoartworks.com/artists</loc></url>
+  <url><loc>https://ninjajoartworks.com/artists/ninja-jo</loc></url>
+  <url><loc>https://ninjajoartworks.com/artists/entropy-zero</loc></url>
+  <url><loc>https://ninjajoartworks.com/artists/sebastian-komor</loc></url>
+  <url><loc>https://ninjajoartworks.com/request</loc></url>
+  <url><loc>https://ninjajoartworks.com/contact</loc></url>
+  <url><loc>https://ninjajoartworks.com/news/</loc></url>
 </urlset>
